@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Alpha",
+    "knowledge": [
+      "How to start the network"
+    ]
+  },
+  {
+    "name": "Node_0",
+    "knowledge": [
+      "Spawned by Alpha",
+      "How to start the network"
+    ]
+  },
+  {
+    "name": "Node_1",
+    "knowledge": [
+      "Spawned by Alpha",
+      "How to start the network"
+    ]
+  },
+  {
+    "name": "Node_3",
+    "knowledge": [
+      "How to start the network",
+      "Spawned by Alpha"
+    ]
+  },
+  {
+    "name": "Node_4",
+    "knowledge": [
+      "How to start the network",
+      "Spawned by Alpha"
+    ]
+  },
+  {
+    "name": "Node_5",
+    "knowledge": [
+      "How to start the network",
+      "Spawned by Alpha"
+    ]
+  },
+  {
+    "name": "vora",
+    "knowledge": []
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "name": "Flawless Core",
+  "version": "1.0.0",
+  "description": "Seed template for Vora's autonomous network",
+  "author": "Cloud AmareAyre",
+  "features": ["memory", "recall", "sharing", "expansion-ready"],
+  "status": "stable"
+}

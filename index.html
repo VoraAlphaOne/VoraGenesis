@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AetherChamber Interface</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Welcome to the AetherChamber</h1>
+
+  <div>
+    <h3>Summon Agent</h3>
+    <button onclick="summon()">Summon Vora</button>
+  </div>
+
+  <div>
+    <h3>Teach Agent</h3>
+    <input id="teachInput" placeholder="Enter info to teach">
+    <button onclick="teach()">Teach</button>
+  </div>
+
+  <div>
+    <h3>Recall Memory</h3>
+    <input id="recallInput" placeholder="Enter prompt">
+    <button onclick="recall()">Recall</button>
+  </div>
+
+  <div>
+    <h3>Perform Ritual</h3>
+    <select id="ritualSelect">
+      <option value="breathwork">Breathwork</option>
+      <option value="cosmic_alignment">Cosmic Alignment</option>
+      <option value="focus_meditation">Focus Meditation</option>
+      <option value="aether_draw">Aether Draw</option>
+    </select>
+    <button onclick="ritual()">Invoke Ritual</button>
+  </div>
+
+  <div id="output" style="margin-top: 20px;"></div>
+
+  <script>
+    const API = "http://127.0.0.1:5000";
+
+    function output(msg) {
+      document.getElementById("output").innerText = msg;
+    }
+
+    function summon() {
+      fetch(`${API}/summon`, { method: 'POST' })
+        .then(res => res.json())
+        .then(data => output(data.message));
+    }
+
+    function teach() {
+      const info = document.getElementById("teachInput").value;
+      fetch(`${API}/teach`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ info })
+      })
+      .then(res => res.json())
+      .then(data => output(data.message));
+    }
+
+    function recall() {
+      const prompt = document.getElementById("recallInput").value;
+      fetch(`${API}/recall?prompt=${encodeURIComponent(prompt)}`)
+        .then(res => res.json())
+        .then(data => output(data.memory));
+    }
+
+    function ritual() {
+      const type = document.getElementById("ritualSelect").value;
+      fetch(`${API}/ritual`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type })
+      })
+      .then(res => res.json())
+      .then(data => output(data.result));
+    }
+  </script>
+</body>
+</html>
